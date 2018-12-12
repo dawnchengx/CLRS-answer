@@ -1,0 +1,18 @@
+RecursionInsertSort(A, q)
+    if q > 0
+        RecursionInsertSort(A, q-1)
+        InsertSort(A, q)
+
+InsertSort(A, q)
+    key = A[q+1]
+    j = q
+    for 0 < j and A[j] > key
+        A[j+1] = A[j]
+        i = i - 1
+    A[j+1] = key
+
+分解 O(1)
+解决 T(n-1)
+合并 O(n)
+
+T(n) = T(n-1) + O(n)
