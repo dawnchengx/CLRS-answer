@@ -1,0 +1,38 @@
+BinarySearch(A, p, q, key)
+    if p < q
+        m = (p + q) / 2
+        if A[m] == key
+            return m
+        else if key < A[m]
+            BinarySearch(A, p, m, key)
+        else
+            BinarySearch(A, m, q, key)
+    return -1
+
+BinarySearch(A, x)
+    i = 1
+    j = A.length
+    for i <= j
+        m = (i + j) / 2
+        if A[m] == x
+            return m
+        else if A[m] > x
+            j = m - 1
+        else
+            i = m + 1
+     return -1
+
+第几次查询   剩余待查询元素数量
+1               n/2
+2               n/2^2
+3               n/2^3
+...             ...
+k               n/2^k
+
+剩余待查询的元素数始终是 >=1的
+最坏的情况是=1
+也就是  n/2^k = 1
+得到 k = log2 n
+这个时候的k，是该算法最坏执行情况所要步数的方程式
+那么可以作为该算法的渐近上界
+因此该算法的时间复杂度的渐近上界为 O(log2 n)
